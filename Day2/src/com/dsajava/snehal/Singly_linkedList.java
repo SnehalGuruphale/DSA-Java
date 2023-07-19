@@ -16,9 +16,39 @@ public class Singly_linkedList {
 			this.next=null;
 		}
 	}
-	public void insert(int data)
+	public void insertAtBeginning(int data,int position)
 	{
+		
 		Node newNode=new Node(data);
+		newNode.next=Head;
+		Head=newNode;
+	}
+	public void insertAtSpecific(int data,int position)
+	{
+		if(position<=0)
+		{
+			insertAtBeginning(data);
+		}
+		else
+		{
+			Node newNode=new Node(data);
+			Node current=Head;
+			int count=0;
+			Node prev=null;
+			while(current!=null && count<position)
+			{
+				prev=current;
+				current=current.next;
+				count++;
+			}
+			prev=current;
+			current=current.next;
+			count++;
+		}
+		prev.next=newNode;
+		newNode.next=current;
+	}
+}
 		if(Head==null)
 		{
 			Head=newNode;
