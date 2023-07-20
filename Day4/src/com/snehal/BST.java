@@ -127,9 +127,17 @@ public class BST {
 			}
 			if (current.right != null) {
 				queue.add(current.right);
-			}
-			
+			}			
 		}
+	}
+	//DFS
+	public static void dfs(TreeNode root) {
+		if (root ==null) {
+			return;
+		}
+		System.out.print(root.val+" ");	
+		dfs(root.left);
+		dfs(root.right);
 	}
 	
 
@@ -148,9 +156,8 @@ public class BST {
 		tree.insert(40);
 		tree.insert(36);
 		tree.insert(80);
-		tree.insert(63);
-		
-		
+		tree.insert(63);		
+		System.out.println("\n");
 		System.out.println("Inorder Traversal:");
         tree.inorder();
 
@@ -159,8 +166,13 @@ public class BST {
 
         System.out.println("\nPostorder Traversal:");
         tree.postorder();
-        
+        System.out.println("\n");
         System.out.println("\nBreadth-First Search :");		
 		bfs(tree.root);
+		
+		System.out.println("\n");
+		System.out.println("Depth First Search Algorithm: ");
+		dfs(tree.root);
+		System.out.println();
 	}
 }
