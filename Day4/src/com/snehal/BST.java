@@ -1,4 +1,8 @@
 package com.snehal;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST {
 
 	private TreeNode root;
@@ -106,9 +110,32 @@ public class BST {
 			System.out.print(root.val + " ");
 		}
 	}
+	
+	public static void bfs(TreeNode root) {
+		if (root == null) {
+			return;			
+		}
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		
+		while (!queue.isEmpty()) {
+			TreeNode current = queue.poll();  //dequeue
+			System.out.print(current.val+" ");
+			
+			if (current.left!=null) {
+				queue.add(current.left);				
+			}
+			if (current.right != null) {
+				queue.add(current.right);
+			}
+			
+		}
+	}
+	
 
 	public static void main(String[]args) {
 		BST tree = new BST();
+		TreeNode root = new TreeNode(25);
 		tree.insert(20);
 		tree.insert(10);
 		tree.insert(30);
@@ -132,5 +159,8 @@ public class BST {
 
         System.out.println("\nPostorder Traversal:");
         tree.postorder();
+        
+        System.out.println("\nBreadth-First Search :");		
+		bfs(tree.root);
 	}
 }
