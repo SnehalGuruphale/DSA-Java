@@ -174,5 +174,10 @@ public class BST {
 		System.out.println("Depth First Search Algorithm: ");
 		dfs(tree.root);
 		System.out.println();
+		
+		tree.delete(15);
+		tree.delete(80);
+		System.out.println("\nPreOrder: ");
+		tree.inorder();
 	}
 }
